@@ -23,7 +23,6 @@ public class Remove_Duplicates_from_Sorted_Array2_80 {
                 twice = false;
             } else if (!twice && nums[i] != nums[i - 1]) {
                 nums[k++] = nums[i];
-                twice = false;
             }
         }
         return k;
