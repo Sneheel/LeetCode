@@ -8,16 +8,15 @@ public class Best_Time_to_Buy_and_Sell_Stock_121 {
     }
 
     public static int maxProfit(int[] prices) {
-        int buy = 0;
-        int sell = 1;
-        int maxProfit = 0;
-        while (sell < prices.length) {
-            if (prices[sell] > prices[buy])
-                maxProfit = Math.max(maxProfit, prices[sell] - prices[buy]);
-            else
-                buy = sell;
-            sell++;
+        int buyPrice = prices[0];
+        int profit = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] < buyPrice) {
+                buyPrice = prices[i];
+            } else if (prices[i] - buyPrice > profit) {
+                profit = prices[i] - buyPrice;
+            }
         }
-        return maxProfit;
+        return profit;
     }
 }
